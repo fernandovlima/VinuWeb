@@ -30,6 +30,11 @@ public class Usuario {
 	public void setEmailAluno(String emailAluno) {
 		this.emailAluno = emailAluno;
 	}
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nomeUsuario=" + nomeUsuario + ", emailAluno=" + emailAluno + "]";
+	}
+	
 	
 	
 	
