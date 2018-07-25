@@ -21,3 +21,4 @@ public class TestarUsuario {
 		assertEquals(true, user.getId() != 0);		
 	}
 }
+
