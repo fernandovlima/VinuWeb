@@ -4,7 +4,7 @@ public class Usuario {
 
 	private long id;
 	private String nomeUsuario;
-	private String emailAluno;
+	private String emailUsuario;
 	
 	
 	
@@ -25,14 +25,14 @@ public class Usuario {
 		this.nomeUsuario = nomeUsuario;
 	}
 	public String getEmailAluno() {
-		return emailAluno;
+		return emailUsuario;
 	}
 	public void setEmailAluno(String emailAluno) {
-		this.emailAluno = emailAluno;
+		this.emailUsuario = emailAluno;
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nomeUsuario=" + nomeUsuario + ", emailAluno=" + emailAluno + "]";
+		return "Usuario [id=" + id + ", nomeUsuario=" + nomeUsuario + ", emailAluno=" + emailUsuario + "]";
 	}
 	
 	
