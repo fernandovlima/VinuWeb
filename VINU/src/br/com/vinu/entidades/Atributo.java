@@ -1,8 +1,14 @@
 package br.com.vinu.entidades;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Atributo {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private String nomeAtributo;
 	private String valorAtributo;
 	
@@ -12,10 +18,10 @@ public class Atributo {
 		super();
 	}
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNomeAtributo() {

@@ -12,7 +12,7 @@ public class TestarAtributo {
 	@Test
 	public void testacadastroAtributo() {
 		Atributo atributo = new Atributo();
-		atributo.setId(0);
+		atributo.setId(null);
 		atributo.setNomeAtributo("Teste");
 		atributo.setValorAtributo("teste");
 		

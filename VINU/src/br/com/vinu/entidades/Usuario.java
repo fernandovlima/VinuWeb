@@ -1,8 +1,14 @@
 package br.com.vinu.entidades;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Usuario {
 
-	private long id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private String nomeUsuario;
 	private String emailUsuario;
 	
@@ -12,10 +18,10 @@ public class Usuario {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNomeUsuario() {
@@ -24,10 +30,10 @@ public class Usuario {
 	public void setNomeUsuario(String nomeUsuario) {
 		this.nomeUsuario = nomeUsuario;
 	}
-	public String getEmailAluno() {
+	public String getEmailUsuario() {
 		return emailUsuario;
 	}
-	public void setEmailAluno(String emailAluno) {
+	public void setEmailUsuario(String emailAluno) {
 		this.emailUsuario = emailAluno;
 	}
 	@Override
