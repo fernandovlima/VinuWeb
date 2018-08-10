@@ -6,6 +6,8 @@ import br.com.vinu.entidades.Usuario;
 
 public class UsuarioServico {
 
+	Dao<Usuario> usuarioDao = FabricaDao.createDaoUsuario();
+	
 	public void adicionar(Usuario usuario) throws ServicoException {
 		
 		if ( usuario.getNomeUsuario().isEmpty()) {
@@ -19,26 +21,28 @@ public class UsuarioServico {
 			}
 		}
 			
-		Dao<Usuario> usuarioDao = FabricaDao.createDaoUsuario();
+		
 		usuarioDao.adicionar(usuario);
 	}
 	
 	public void editar(Usuario usuario) throws ServicoException{
 		
-		try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
+		if (usuario.getId() == null) {
+			throw new ServicoException("Usuário inexistente.");
 		}
+		usuarioDao.editar(usuario);
 	}
 
-	public void deletar(Usuario user) {
-		// TODO Auto-generated method stub
+	public void deletar(Usuario usuario) throws ServicoException {
+		if(usuario.getId() == null) {
+			throw new ServicoException("Usuário inexistente.");
+		}
 		
+		usuarioDao.excluir(usuario);		
 	}
 
 	public Usuario buscaPorId(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return usuarioDao.buscarPorId(id);
 	}
 }

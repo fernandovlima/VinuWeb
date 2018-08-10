@@ -35,5 +35,10 @@ public class TestarUsuario {
 		assertEquals(true, usuarios.size() > 0);
 	}
 	
+	@Test
+	public void deveriaExcluirUsuario() {
+		
+	}
+	
 }
 
