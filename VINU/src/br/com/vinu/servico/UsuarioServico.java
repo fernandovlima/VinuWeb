@@ -1,6 +1,7 @@
 package br.com.vinu.servico;
 
-import br.com.vinu.dao.UsuarioDao;
+import br.com.vinu.dao.Dao;
+import br.com.vinu.dao.FabricaDao;
 import br.com.vinu.entidades.Usuario;
 
 public class UsuarioServico {
@@ -18,7 +19,8 @@ public class UsuarioServico {
 			}
 		}
 			
-		new UsuarioDao().adicionar(usuario);
+		Dao<Usuario> usuarioDao = FabricaDao.createDaoUsuario();
+		usuarioDao.adicionar(usuario);
 	}
 	
 	public void editar(Usuario usuario) throws ServicoException{
@@ -28,5 +30,15 @@ public class UsuarioServico {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+	}
+
+	public void deletar(Usuario user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Usuario buscaPorId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -12,7 +12,7 @@ import br.com.vinu.entidades.Usuario;
 
 public class UsuarioDao implements Dao<Usuario>{
 	
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("projetoVinu");
+	EntityManagerFactory emf = Conexao.getInstance();
 
 
 	@Override
@@ -40,6 +40,7 @@ public class UsuarioDao implements Dao<Usuario>{
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> listar() {
 		EntityManager em = emf.createEntityManager();

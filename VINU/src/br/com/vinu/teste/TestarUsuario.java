@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import br.com.vinu.dao.UsuarioDao;
 import br.com.vinu.entidades.Usuario;
-import br.com.vinu.servico.UsuarioServico;
+import br.com.vinu.servico.Facade;
 
 public class TestarUsuario {
 
@@ -20,7 +20,7 @@ public class TestarUsuario {
 		user.setEmailUsuario("teste");
 		
 		try {
-			new UsuarioServico().adicionar(user);
+			new Facade().addUsuario(user);
 
 		} catch (Exception e) {
 			e.printStackTrace();
