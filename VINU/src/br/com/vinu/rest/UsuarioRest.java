@@ -19,8 +19,10 @@ import br.com.vinu.entidades.Usuario;
 import br.com.vinu.servico.Facade;
 import br.com.vinu.servico.ServicoException;
 import br.com.vinu.servico.UsuarioServico;
+import io.swagger.annotations.Api;
 
 @Path("/usuariorest")
+@Api(value="/usuariorest")
 public class UsuarioRest {
 
 	

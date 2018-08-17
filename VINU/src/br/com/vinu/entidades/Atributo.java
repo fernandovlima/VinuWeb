@@ -1,16 +1,20 @@
 package br.com.vinu.entidades;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
+@Entity
 public class Atributo {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String nomeAtributo;
 	private String valorAtributo;
+	@ManyToOne
+	private Vinho vinho;
 	
 	
 	
@@ -18,7 +22,7 @@ public class Atributo {
 		super();
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {

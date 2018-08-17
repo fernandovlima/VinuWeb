@@ -37,6 +37,33 @@ public class TestarUsuario {
 	
 	@Test
 	public void deveriaExcluirUsuario() {
+		Usuario user = new Usuario();
+		user.setId((long) 10);
+		user.setNomeUsuario("Usuário 10");
+		user.setEmailUsuario("user10@email.com");
+		try {
+			new Facade().deletarUsuario(user);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(true, user.getId() != null);
+	}
+	
+	@Test
+	public void deveriaEditarUsuario() {
+		Usuario user = new Usuario();
+		user.setId((long) 10);
+		user.setNomeUsuario("Usuário 10");
+		user.setEmailUsuario("user10@email.com");
+		try {
+			new Facade().editarUsuario(user);;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(true, user.getId() != null);
+		
 		
 	}
 	

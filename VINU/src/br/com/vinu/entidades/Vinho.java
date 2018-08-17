@@ -3,17 +3,23 @@ package br.com.vinu.entidades;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
+@Entity
 public class Vinho {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String nomeVinho;
+	
+	@OneToMany(mappedBy="vinho", cascade = CascadeType.ALL)
 	private List<Atributo> atributosVinho;
+	
 	private Date dataCadastro;
 	
 	public Vinho() {
