@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import br.com.vinu.entidades.Usuario;
@@ -35,7 +34,7 @@ public class UsuarioDao implements Dao<Usuario>{
 	public void excluir(Usuario usuario) {
 		EntityManager em = emf.createEntityManager();		
 		em.getTransaction().begin();
-		em.remove(usuario);
+		em.remove(em.merge(usuario));
 		em.getTransaction().commit();
 		
 	}

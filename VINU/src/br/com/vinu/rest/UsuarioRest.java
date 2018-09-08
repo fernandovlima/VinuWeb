@@ -14,6 +14,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.vinu.dao.Dao;
+import br.com.vinu.dao.FabricaDao;
 import br.com.vinu.dao.UsuarioDao;
 import br.com.vinu.entidades.Usuario;
 import br.com.vinu.servico.Facade;
@@ -57,10 +59,14 @@ public class UsuarioRest {
 	}
 	
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	public void excuir(Usuario usuario) {
+	@Path("{id}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void excuir(@PathParam("id") Long id) {
 		try {
-			new Facade().deletarUsuario(usuario);
+			
+			Dao<Usuario> userDao = FabricaDao.createDaoUsuario();
+			Usuario user = userDao.buscarPorId(id);
+			userDao.excluir(user);
 
 		} catch (Exception e) {
 			e.printStackTrace();

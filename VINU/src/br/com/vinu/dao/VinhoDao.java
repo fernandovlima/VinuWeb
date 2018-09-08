@@ -27,6 +27,9 @@ public class VinhoDao  implements Dao<Vinho>{
 	@Override
 	public void editar(Vinho t) {
 		
+		em.getTransaction().begin();
+		em.merge(t);
+		em.getTransaction().commit();
 	}
 
 	@Override
@@ -35,16 +38,17 @@ public class VinhoDao  implements Dao<Vinho>{
 		try {
 			em.getTransaction().begin();
 			buscarPorId(t.getId());
-			em.merge(t);
+			em.remove(em.merge(t));
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.getMessage().toString();
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Vinho> listar() {
-		Query q = em.createQuery("select a from Vinho a");
+		Query q = em.createQuery("select v from Vinho v");
 		return q.getResultList();
 	}
 

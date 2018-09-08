@@ -12,8 +12,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.vinu.dao.Dao;
+import br.com.vinu.dao.FabricaDao;
 import br.com.vinu.dao.VinhoDao;
-import br.com.vinu.entidades.Usuario;
 import br.com.vinu.entidades.Vinho;
 import br.com.vinu.servico.Facade;
 import br.com.vinu.servico.ServicoException;
@@ -55,10 +56,15 @@ public class VinhoRest {
 	}
 	
 	@DELETE
+	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void excuir(Vinho v) {
+	public void excuir(@PathParam("id") Long id) {
 		try {
-			new Facade().editarVinho(v);
+			Dao<Vinho> vinhoDao = FabricaDao.createDaoVinho();
+			Vinho vinho = vinhoDao.buscarPorId(id);
+			vinhoDao.excluir(vinho);
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
