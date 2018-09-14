@@ -12,29 +12,25 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.vinu.dao.AtributoDao;
 import br.com.vinu.dao.Dao;
 import br.com.vinu.dao.FabricaDao;
-import br.com.vinu.dao.VinhoDao;
 import br.com.vinu.entidades.Atributo;
-import br.com.vinu.entidades.Vinho;
+import br.com.vinu.servico.AtributoServico;
 import br.com.vinu.servico.Facade;
 import br.com.vinu.servico.ServicoException;
-import br.com.vinu.servico.VinhoServico;
 import io.swagger.annotations.Api;
 
-
-@Path("/vinhorest")
-@Api(value="/vinhorest")
-public class VinhoRest {
+@Path("/atributorest")
+@Api(value="/atributorest")
+public class AtributoRest {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void adicionar(Vinho vinho) {
+	public void adicionar(Atributo atributo) {
 		try {
-			for(Atributo atr : vinho.getAtributosVinho()) {
-				atr.setVinho(vinho);
-			}
-			new VinhoServico().adicionar(vinho);
+			
+			new AtributoServico().adicionar(atributo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -42,17 +38,17 @@ public class VinhoRest {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Vinho> listar(){
-		List<Vinho> vinhos = new VinhoDao().listar();
+	public List<Atributo> listar(){
+		List<Atributo> vinhos = new AtributoDao().listar();
 		return vinhos;
 	}
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void editar(Vinho v) {
+	public void editar(Atributo atributo) {
 		
 		try {
-			new Facade().editarVinho(v);;
+			new Facade().editarAtributo(atributo);;
 		} catch (ServicoException e) {
 			e.printStackTrace();
 		}
@@ -64,9 +60,9 @@ public class VinhoRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public void excuir(@PathParam("id") Long id) {
 		try {
-			Dao<Vinho> vinhoDao = FabricaDao.createDaoVinho();
-			Vinho vinho = vinhoDao.buscarPorId(id);
-			vinhoDao.excluir(vinho);
+			Dao<Atributo> atributoDao = FabricaDao.createDaoAtributo();
+			Atributo atributo  = atributoDao.buscarPorId(id);
+			atributoDao.excluir(atributo);
 			
 			
 
@@ -78,11 +74,8 @@ public class VinhoRest {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Vinho buscarPorId(@PathParam("id")Long id) throws ServicoException  {
+	public Atributo buscarPorId(@PathParam("id")Long id) throws ServicoException  {
 	
-		return new Facade().buscarVinhoPorId(id);
-	
-
+		return new Facade().buscarAtributoPorId(id);
 	}
-
 }

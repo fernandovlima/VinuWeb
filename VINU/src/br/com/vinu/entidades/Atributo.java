@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 public class Atributo {
 	
@@ -13,11 +15,21 @@ public class Atributo {
 	private Long id;
 	private String nomeAtributo;
 	private String valorAtributo;
+	
+	@JsonBackReference
 	@ManyToOne
 	private Vinho vinho;
 	
 	
 	
+	public Vinho getVinho() {
+		return vinho;
+	}
+
+	public void setVinho(Vinho vinho) {
+		this.vinho = vinho;
+	}
+
 	public Atributo() {
 		super();
 	}

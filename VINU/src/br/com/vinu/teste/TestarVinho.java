@@ -18,7 +18,6 @@ public class TestarVinho {
 		Vinho v = new Vinho();
 		v.setId(null);
 		v.setNomeVinho("Casilero del Diablo");
-		v.setDataCadastro(new Date());
 		v.setAtributosVinho(null);
 		
 		try {
@@ -34,7 +33,6 @@ public class TestarVinho {
 	public void testaEditarVinho() {
 		Vinho v = new Vinho();
 		v.setId((long) 10);
-		v.setDataCadastro(new Date());
 		v.setNomeVinho("Vinho 11");
 		v.setAtributosVinho(null);
 		try {
@@ -51,7 +49,6 @@ public class TestarVinho {
 	public void testaExcluirVinho() {
 		Vinho v = new Vinho();
 		v.setId((long) 10);
-		v.setDataCadastro(new Date());
 		v.setNomeVinho("Vinho 11");
 		v.setAtributosVinho(null);
 		try {

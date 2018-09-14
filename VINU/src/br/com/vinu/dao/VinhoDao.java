@@ -16,7 +16,7 @@ public class VinhoDao  implements Dao<Vinho>{
 	public void adicionar(Vinho t) {
 		try {
 			em.getTransaction().begin();
-			buscarPorId(t.getId());
+			
 			em.persist(t);
 			em.getTransaction().commit();
 		} catch (Exception e) {

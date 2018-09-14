@@ -3,8 +3,6 @@ package br.com.vinu.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import br.com.vinu.entidades.Atributo;
@@ -18,7 +16,6 @@ public class AtributoDao implements Dao<Atributo> {
 
 		try {
 			em.getTransaction().begin();
-			buscarPorId(t.getId());
 			em.persist(t);
 			em.getTransaction().commit();	
 		} catch (Exception e) {
@@ -50,6 +47,7 @@ public class AtributoDao implements Dao<Atributo> {
 			e.getMessage().toString();		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Atributo> listar() {
 		Query q = em.createQuery("select a from Atributo a");

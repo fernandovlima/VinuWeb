@@ -6,6 +6,7 @@ import br.com.vinu.entidades.Atributo;
 
 public class AtributoServico {
 	
+	@SuppressWarnings("static-access")
 	Dao<Atributo> atributoDao = new FabricaDao().createDaoAtributo();
 
 	public void adicionar(Atributo a) throws ServicoException {

@@ -1,6 +1,5 @@
 package br.com.vinu.entidades;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,18 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 public class Vinho {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
 	private String nomeVinho;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy="vinho", cascade = CascadeType.ALL)
 	private List<Atributo> atributosVinho;
 	
-	private Date dataCadastro;
 	
 	public Vinho() {
 		super();
@@ -51,18 +53,11 @@ public class Vinho {
 		this.atributosVinho = atributosVinho;
 	}
 
-	public Date getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Vinho [id=" + id + ", nomeVinho=" + nomeVinho + ", atributosVinho=" + atributosVinho + ", dataCadastro="
-				+ dataCadastro + "]";
+		return "Vinho [id=" + id + ", nomeVinho=" + nomeVinho + ", atributosVinho=" + atributosVinho ;
 	}
 	
 	
