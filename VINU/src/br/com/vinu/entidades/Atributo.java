@@ -14,7 +14,6 @@ public class Atributo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String nomeAtributo;
-	private String valorAtributo;
 	
 	@JsonBackReference
 	@ManyToOne
@@ -46,15 +45,10 @@ public class Atributo {
 	public void setNomeAtributo(String nomeAtributo) {
 		this.nomeAtributo = nomeAtributo;
 	}
-	public String getValorAtributo() {
-		return valorAtributo;
-	}
-	public void setValorAtributo(String valorAtributo) {
-		this.valorAtributo = valorAtributo;
-	}
+	
 	@Override
 	public String toString() {
-		return "Atributo [id=" + id + ", nomeAtributo=" + nomeAtributo + ", valorAtributo=" + valorAtributo + "]";
+		return "Atributo [id=" + id + ", nomeAtributo=" + nomeAtributo +  "]";
 	}
 	
 

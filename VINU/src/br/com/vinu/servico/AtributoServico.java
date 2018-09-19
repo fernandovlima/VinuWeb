@@ -13,11 +13,8 @@ public class AtributoServico {
 		if(a.getNomeAtributo() == null) {
 			//dispara erro
 			throw new ServicoException("Nome do atributo não pode ser vazio.");
-		}else {
-			if(a.getValorAtributo() == null) {
-				throw new ServicoException("Valor do atributo não pode ser vazio.");
-			}
 		}
+		
 		atributoDao.adicionar(a);
 	}
 	

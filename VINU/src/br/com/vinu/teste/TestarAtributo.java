@@ -17,7 +17,6 @@ public class TestarAtributo {
 		Atributo atributo = new Atributo();
 		atributo.setId(null);
 		atributo.setNomeAtributo("Atributo 1");
-		atributo.setValorAtributo("Valor 1");
 		
 		try {
 			new Facade().addAtributo(atributo);
@@ -39,7 +38,6 @@ public class TestarAtributo {
 		Atributo a = new Atributo();
 		a.setId((long) 11);
 		a.setNomeAtributo("Atributo 11");
-		a.setValorAtributo("Valor 11");
 		try {
 			new Facade().editarAtributo(a);
 		} catch (Exception e) {
@@ -53,7 +51,6 @@ public class TestarAtributo {
 		Atributo a = new Atributo();
 		a.setId((long) 11);
 		a.setNomeAtributo("Atributo 11");
-		a.setValorAtributo("Valor 11");
 		try {
 			new Facade().deletarAtributo(a);
 		} catch (Exception e) {
